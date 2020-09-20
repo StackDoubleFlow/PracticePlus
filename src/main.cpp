@@ -1,4 +1,3 @@
-#include "../include/mod_interface.hpp"
 #include "../include/main.hpp"
 
 #include "../extern/beatsaber-hook/shared/utils/il2cpp-utils.hpp"
