@@ -1,33 +1,31 @@
 {
-    "id": "PracticePlus",
-    "name": "PracticePlus",
-    "author": "L_",
-    "description": [
-        
-    ],
-    "category": "Gameplay",
-    "gameVersion": "1.10.0",
-    "version": "0.2.0",
-    "platform": "Quest",
-    "components": [
-        {
-            "type": "HookMod",
-            "installAction": {
-                "installLibraryFile": "libpracticeplus.so"
-            },
-            "uninstallAction": {
-                "removeLibraryFile": "libpracticeplus.so"
-            }
-        },
-	{
-            "type": "FileCopyMod",
-            "sourceFileName": "libbeatsaber-hook_2019_2_1f1_0_1_1.so",
-            "targetRootedPathAndFileName": "/sdcard/Android/data/com.beatgames.beatsaber/files/libs/libbeatsaber-hook_2019_2_1f1_0_1_1.so"
-        },
-	{
-            "type": "FileCopyMod",
-            "sourceFileName": "libcustomui.so",
-            "targetRootedPathAndFileName": "/sdcard/Android/data/com.beatgames.beatsaber/files/libs/libcustomui.so"
-        }
-    ]
+  "id": "PracticePlus",
+  "name": "PracticePlus",
+  "version": "0.3.0",
+  "author": "L_",
+  "description": [],
+  "category": "Gameplay",
+  "gameVersion": "1.10.0",
+  "platform": "Quest",
+  "components": [
+    {
+      "type": "HookMod",
+      "installAction": {
+        "installLibraryFile": "libpracticeplus.so"
+      },
+      "uninstallAction": {
+        "removeLibraryFile": "libpracticeplus.so"
+      }
+    },
+    {
+      "type": "FileCopyMod",
+      "sourceFileName": "libbeatsaber-hook_2019_2_1f1_0_1_1.so",
+      "targetRootedPathAndFileName": "/sdcard/Android/data/com.beatgames.beatsaber/files/libs/libbeatsaber-hook_2019_2_1f1_0_1_1.so"
+    },
+    {
+      "type": "FileCopyMod",
+      "sourceFileName": "libcustomui.so",
+      "targetRootedPathAndFileName": "/sdcard/Android/data/com.beatgames.beatsaber/files/libs/libcustomui.so"
+    }
+  ]
 }

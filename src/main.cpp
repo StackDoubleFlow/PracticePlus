@@ -4,7 +4,7 @@
 #include "../extern/beatsaber-hook/shared/utils/il2cpp-utils.hpp"
 #include "../extern/beatsaber-hook/shared/utils/il2cpp-functions.hpp"
 #include "../extern/beatsaber-hook/shared/utils/utils.h"
-#include "../extern/BeatSaberQuestCustomUI/shared/customui.hpp"
+#include "../extern/custom-ui/shared/customui.hpp"
 using namespace il2cpp_utils;
 using namespace CustomUI;
 
@@ -19,8 +19,9 @@ int diff;
 bool created = false;
 
 bool inPracticeMode = false;
-void log(std::string str) {
-    Logger::get().info(str);
+void log(std::string_view str) {
+    static const Logger& logger(modInfo);
+    logger.info(str);
 }
 
 
@@ -68,20 +69,13 @@ MAKE_HOOK_OFFSETLESS(PracticeViewController_DidActivate, void, Il2CppObject* sel
 }
 
 extern "C" void setup(ModInfo& info) {
-    info.id = "PracticePlus";
-    info.version = "0.2.0";
+    info.id = ID;
+    info.version = VERSION;
     modInfo = info;
-    // Create logger
-    static std::unique_ptr<const Logger> ptr(new Logger(info));
-    logger = ptr.get();
-    logger->info("Completed setup!");
-    // We can even check information specific to the modloader!
-    logger->info("Modloader name: %s", Modloader::getInfo().name.c_str());
 }
 
 extern "C" void load() {
-    il2cpp_functions::Init();
-    INSTALL_HOOK_OFFSETLESS(PauseMenuManager_ShowMenu, FindMethodUnsafe("", "PauseMenuManager", "ShowMenu", 0));
+    INSTALL_HOOK_OFFSETLESS(PauseMenuManager_ShowMenu, FindMethod("", "PauseMenuManager", "ShowMenu"));
     INSTALL_HOOK_OFFSETLESS(PracticeViewController_DidActivate, FindMethodUnsafe("", "PracticeViewController", "DidActivate", 2));
     INSTALL_HOOK_OFFSETLESS(LevelSelectionFlowCoordinator_StartLevel, FindMethodUnsafe("", "LevelSelectionFlowCoordinator", "StartLevel", 3));
     INSTALL_HOOK_OFFSETLESS(BOSMD_Init, FindMethodUnsafe("", "BeatmapObjectSpawnMovementData", "Init", 8));

@@ -1,10 +1,9 @@
-#include "../include/mod_interface.hpp"
 #include "../include/main.hpp"
 
 #include "../extern/beatsaber-hook/shared/utils/il2cpp-utils.hpp"
 #include "../extern/beatsaber-hook/shared/utils/il2cpp-functions.hpp"
 #include "../extern/beatsaber-hook/shared/utils/utils.h"
-#include "../extern/BeatSaberQuestCustomUI/shared/customui.hpp"
+#include "../extern/custom-ui/shared/customui.hpp"
 #include <cmath>
 
 

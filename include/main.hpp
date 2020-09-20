@@ -1,21 +1,19 @@
-#include "../include/mod_interface.hpp"
-
 #include <unordered_set>
 
 #include "../extern/beatsaber-hook/shared/utils/utils.h"
 #include "../extern/beatsaber-hook/shared/utils/logging.hpp"
-#include "../extern/beatsaber-hook/include/modloader.hpp"
+#include "../extern/modloader/shared/modloader.hpp"
 #include "../extern/beatsaber-hook/shared/utils/typedefs.h"
 #include "../extern/beatsaber-hook/shared/utils/il2cpp-utils.hpp"
 #include "../extern/beatsaber-hook/shared/utils/il2cpp-functions.hpp"
-#include "../extern/BeatSaberQuestCustomUI/shared/customui.hpp"
+#include "../extern/custom-ui/shared/customui.hpp"
 
 using namespace il2cpp_utils;
 using namespace CustomUI;
 
-static const Logger* logger;
-
 extern Il2CppObject* _spawnController;
+
+void log(std::string_view str);
 
 extern Il2CppObject* sldv;
 
@@ -109,7 +107,7 @@ class CustomButton {
                 il2cpp_utils::RunMethod(onClick, "AddListener", actionToRun);
                 isCreated = true;
             } else {
-                logger->info("Already created.");
+                log("Already created.");
             }
         }
  
@@ -135,7 +133,7 @@ class CustomButton {
                 TMPLocalizer = nullptr;
                 isCreated = false;
             } else {
-                logger->info("Already destroyed.");
+                log("Already destroyed.");
             }
         }
 };
